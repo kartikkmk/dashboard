@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		   
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m,sap.suite.ui.commons"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_mvi" theme -->
+
+		<script>
+				sap.ui.localResources("sample");
+				var app = new sap.m.App({initialPage:"idV11"});
+				var page = sap.ui.view({id:"idV11", viewName:"sample.V1", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content");
+		</script>
+		<script>
+     var time = new Date().getTime();
+     $(document.body).bind("mousemove keypress", function(e) {
+         time = new Date().getTime();
+     });
+
+     function refresh() {
+         if(new Date().getTime() - time >= 6000) 
+             window.location.reload(true);
+         else 
+             setTimeout(refresh, 1000);
+     }
+
+     //setTimeout(refresh, 1000);
+</script>
+
+<style>
+.sapMSLIDescription, .sapMSLITitle{color: #fff;}
+.sapMSLITitleOnly{text-align: center;}
+    .CTile {  
+        text-align: center;  
+    
+    	
+    	font-size: 1.2em;
+    	font-weight:bold;
+    	color : #fff;
+    	border-radius : 5px;
+        }  
+ .sapMGlobalBackgroundColor{background-image:none!important; background-color:#fff;}
+ .sapMBarPH{
+ 	background-color : #207ce5;
+ }
+ .sapMSLITitle{font-size: .7em;}
+ .sapMSLIDescription {
+    font-size: 0.8em;     font-weight: bolder;}
+ .Header{
+ 	color: #fff;
+ 	margin-bottom: 15px;
+ 	background-color : #86adcc;
+ 	color : #fff;
+ }
+</style>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>		
+	</body>
+</html>
